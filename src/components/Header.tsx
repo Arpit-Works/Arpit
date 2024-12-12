@@ -84,7 +84,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 </ul>
             </nav>
             <div className='mt-8 flex justify-center lg:justify-start lg:mt-52'>
-                <Link href='https://github.com/ArpitVK' className='mr-4 hover:text-lime-200' target='_blank'>
+                <Link href='https://github.com/Arpit-Works' className='mr-4 hover:text-lime-200' target='_blank'>
                     <FontAwesomeIcon icon={faGithub} size='2x' />
                 </Link>
                 <Link href='https://www.linkedin.com/in/arpit-vishwakarma23/' className='mr-4 hover:text-lime-200' target='_blank'>

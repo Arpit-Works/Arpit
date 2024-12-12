@@ -4,13 +4,7 @@ export default function About() {
   return (
     <div className="container text-md w-fit py-5 flex flex-col">
       <p>
-        I&apos;m a software developer specializing in both front-end and back-end web
-        development. I enjoy creating user-friendly web applications using
-        React.js, with a recent focus on mastering TailwindCSS for efficient and
-        stylish designs. <br />
-        Passionate about delivering high-quality solutions, I thrive in
-        collaborative environments where creativity and innovation are valued.
-        Let&apos;s build something amazing together!
+      A passionate and detail-oriented web developer with a strong foundation in HTML, CSS, JavaScript, and modern frameworks like React and Next.js. Dedicated to building responsive, user-friendly applications and continuously improving through hands-on experience. Proficient in creating efficient, scalable solutions with a focus on clean, maintainable code, and collaborative teamwork. Actively seeking opportunities to contribute innovative ideas and technical skills to impactful projects.
       </p>
     </div>
   );
