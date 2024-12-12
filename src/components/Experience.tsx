@@ -34,6 +34,15 @@ export default function Experience() {
         date: "Aug 22-Sep 22",
         url: "https://www.devtown.in/",
       },
+<<<<<<< HEAD
+      {
+        id: 2,
+        name: "ZA Charity Feed Foundation",
+        desc: "I contributed to the ZA Charity Feed Foundation, an initiative focused on redistributing excess food from affluent areas to the underprivileged. This project involved building a landing page following Swedish UI principles using HTML, CSS, JavaScript, Tailwind CSS, and GSAP. The page highlighted the foundation's mission, workflow, and included a newsletter subscription feature.",
+        date: "sep 23-Present",
+        url: "https://zeeshanali.org/",
+      },      
+=======
       {
         id: 2,
         name: "ZA Charity Feed Foundation",
@@ -41,6 +50,7 @@ export default function Experience() {
         date: "Sep 23-Present",
         url: "https://zeeshanali.org/",
       },      
+>>>>>>> f6de8077f06ee5ba1b329c8d9b03fb3478be6390
     ],
     []
   );
