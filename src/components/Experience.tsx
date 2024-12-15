@@ -38,7 +38,7 @@ export default function Experience() {
         id: 2,
         name: "ZA Charity Feed Foundation",
         desc: "I designed and developed end-to-end digital solutions, including landing pages, a demo model, and a full-stack project. I built scalable and efficient applications by leveraging technologies like HTML, CSS, JavaScript, ReactJS, Next.js, MongoDB, SQL, Node.js, and Express.js. Additionally, I deployed the project on Hostinger to ensure seamless accessibility. I aim to showcase my ability to deliver comprehensive web development solutions, from frontend design to backend architecture and deployment.",
-        date: "sep 23-Present",
+        date: "Sep 23-Present",
         url: "https://zeeshanali.org/",
       },      
     ],
