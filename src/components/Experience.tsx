@@ -30,14 +30,14 @@ export default function Experience() {
       {
         id: 1,
         name: "Devtown",
-        desc: "I attended Devtown, a bootcamp focused on responsive front-end development. There, I learned key technologies including HTML, CSS, JavaScript, and ReactJS. This training equipped me with the skills to build dynamic and userfriendly web applications",
+        desc: "I attended Devtown, a boot camp focused on responsive front-end development. There, I learned key technologies including HTML, CSS, JavaScript, and ReactJS. This training equipped me with the skills to build dynamic and user-friendly web applications",
         date: "Aug 22-Sep 22",
         url: "https://www.devtown.in/",
       },
       {
         id: 2,
         name: "ZA Charity Feed Foundation",
-        desc: "I contributed to the ZA Charity Feed Foundation, an initiative focused on redistributing excess food from affluent areas to the underprivileged. This project involved building a landing page following Swedish UI principles using HTML, CSS, JavaScript, Tailwind CSS, and GSAP. The page highlighted the foundation's mission, workflow, and included a newsletter subscription feature.",
+        desc: "I designed and developed end-to-end digital solutions, including landing pages, a demo model, and a full-stack project. I built scalable and efficient applications by leveraging technologies like HTML, CSS, JavaScript, ReactJS, Next.js, MongoDB, SQL, Node.js, and Express.js. Additionally, I deployed the project on Hostinger to ensure seamless accessibility. I aim to showcase my ability to deliver comprehensive web development solutions, from frontend design to backend architecture and deployment.",
         date: "sep 23-Present",
         url: "https://zeeshanali.org/",
       },      
