@@ -52,7 +52,7 @@ export default function Experience() {
         <ExperienceItem key={experience.id} experience={experience} />
       ))}
       <Link
-        href="https://drive.google.com/file/d/1h-5bOy4vSj-7uO9_otNH60KMYlRO1hRd/view?usp=drive_link"
+        href="https://docs.google.com/document/d/1NV9K9sPeSAzxgG6zDsAnRlSv7IRMGwQTyQ_Rzq8_XvA/edit?tab=t.0"
         target="_blank"
         className="text-white px-2 py-2 text-lg font-semibold hover:text-lime-200"
       >
