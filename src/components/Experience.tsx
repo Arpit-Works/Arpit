@@ -30,14 +30,14 @@ export default function Experience() {
       {
         id: 1,
         name: "Devtown",
-        desc: "I attended Devtown, a boot camp focused on responsive front-end development. There, I learned key technologies including HTML, CSS, JavaScript, and ReactJS. This training equipped me with the skills to build dynamic and user-friendly web applications",
+        desc: "Attended a hands-on coding bootcamp focused on responsive front-end development. Gained practical experience with HTML, CSS, JavaScript, and ReactJS to build dynamic and user-friendly web applications. Developed multiple UI components and layouts following modern web design principles and accessibility standards.",
         date: "Aug 2022-Sep 2022",
         url: "https://www.devtown.in/",
       },
       {
         id: 2,
         name: "Netcore Cloud Pvt Ltd",
-        desc: "Monitored system health and alerts across distributed platforms using SQL, MongoDB, and Vertica. Ensured high availability and reliability of services through proactive incident detection and resolution. Collaborated with cross-functional teams to enhance monitoring dashboards and alerting systems.",
+        desc: "Monitored distributed systems using Dynatrace and Opsgenie to ensure service health and quick incident response. Investigated production alerts by analyzing logs and debugging root causes, collaborating with component owners to resolve issues. Created and managed Jira tickets for tracking bugs, ensuring timely resolution and documentation. Automated Slack and Opsgenie alert workflows with custom scripts, scheduled via cron jobs for regular health checks. Developed a deep understanding of system architecture and data flow between microservices to enhance debugging accuracy",
         date: "Feb 2025-Present",
         url: "https://netcorecloud.com/",
       },      
