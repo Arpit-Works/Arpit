@@ -50,32 +50,37 @@ export default function Stack() {
                         <span className="stack-comment">{line.value}</span>
                       ) : (
                         <>
-                          {line.key && <span className="stack-key">{line.key}</span>}
+                          {"key" in line && line.key && (
+                            <span className="stack-key">{line.key}</span>
+                          )}
 
-                          {line.values && (
+                          {(line.kind === "array" || line.kind === "array section") && (
                             <>
                               <span className="stack-punc">[</span>
                               {line.values.map((value, index) => (
                                 <span key={value}>
                                   <span className="stack-value">{value}</span>
-                                  {index < line.values!.length - 1 && <span className="stack-punc">, </span>}
+                                  {index < line.values.length - 1 && (
+                                    <span className="stack-punc">, </span>
+                                  )}
                                 </span>
                               ))}
                               <span className="stack-punc">]</span>
                             </>
                           )}
 
-                          {line.value && (
+                          {line.kind === "value" && (
                             <>
                               <span className="stack-value">{line.value}</span>
-                              {line.comment && <span className="stack-comment">{line.comment}</span>}
-                            </>
-                          )}
-
-                          {line.extra && (
-                            <>
-                              <span className="stack-punc">, </span>
-                              <span className="stack-value">{line.extra}</span>
+                              {"comment" in line && line.comment && (
+                                <span className="stack-comment">{line.comment}</span>
+                              )}
+                              {"extra" in line && line.extra && (
+                                <>
+                                  <span className="stack-punc">, </span>
+                                  <span className="stack-value">{line.extra}</span>
+                                </>
+                              )}
                             </>
                           )}
                         </>
