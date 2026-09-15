@@ -1,11 +1,13 @@
-import { portfolioData } from "@/data/portfolio";
 import { gmailComposeUrl } from "@/lib/gmail-compose-url";
+import type { PortfolioData } from "@/lib/portfolio-data";
 import ContactTerminal from "./ContactTerminal";
 import SectionHeader from "./SectionHeader";
 
-export default function Contact() {
-  const { contact } = portfolioData;
+type ContactProps = {
+  contact: PortfolioData["contact"];
+};
 
+export default function Contact({ contact }: ContactProps) {
   return (
     <footer id="contact" className="contact-section">
       <div className="wrap">
@@ -39,6 +41,11 @@ export default function Contact() {
               <a className="btn" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
+              {contact.github ? (
+                <a className="btn" href={contact.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              ) : null}
             </div>
           </div>
 
@@ -46,6 +53,7 @@ export default function Contact() {
             <ContactTerminal
               email={contact.email}
               linkedin={contact.linkedin}
+              github={contact.github}
               location={contact.location}
               build={contact.build}
             />

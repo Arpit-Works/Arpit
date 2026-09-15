@@ -122,6 +122,7 @@ export const portfolioStatic = {
       "Open to backend and full-stack roles — especially ones where reliability, debugging, and system design matter as much as shipping features.",
     email: "vishwakarmaarpit621@gmail.com",
     linkedin: "https://www.linkedin.com/in/arpit-vishwakarma23",
+    github: "" as string,
     location: "Mumbai, India",
     build: "portfolio-v1",
   },

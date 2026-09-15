@@ -37,6 +37,7 @@ function fallbackLeetCode(): LeetCodeEntry {
   const { leetcode } = portfolioStatic;
   return {
     stats: [...leetcode.stats],
+    totalProblemsSolved: 0,
     topics: leetcode.topics.map((name) => ({ name, solved: 0 })),
     languages: [...leetcode.languages],
     profileUrl: "",
@@ -87,6 +88,7 @@ function buildFromUser(username: string, user: LeetCodeApiUser): LeetCodeEntry {
       [`${easy} / ${medium} / ${hard}`, "easy / medium / hard"],
       [contestStat, contestLabel],
     ],
+    totalProblemsSolved: total,
     topics: topics.length > 0 ? topics : fallbackLeetCode().topics,
     languages: languages.length > 0 ? languages : fallbackLeetCode().languages,
     profileUrl: `https://leetcode.com/u/${username}/`,

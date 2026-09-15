@@ -18,10 +18,17 @@ export const getPortfolioData = cache(async (): Promise<PortfolioData> => {
     fetchLeetCodeProfile(),
   ]);
 
-  const { leetcode: _staticLeetcode, ...rest } = portfolioStatic;
+  const { leetcode: _staticLeetcode, contact: staticContact, ...rest } = portfolioStatic;
+
+  const githubUser = process.env.GITHUB_USERNAME?.trim();
+  const contact = {
+    ...staticContact,
+    github: githubUser ? `https://github.com/${githubUser}` : staticContact.github,
+  };
 
   return {
     ...rest,
+    contact,
     experience,
     projects,
     leetcode,

@@ -11,6 +11,7 @@ function openGmailCompose(email: string) {
 export type ContactTerminalProps = {
   email: string;
   linkedin: string;
+  github: string;
   location: string;
   build: string;
 };
@@ -21,7 +22,7 @@ type LogEntry =
   | { id: string; kind: "out"; lines: string[] }
   | { id: string; kind: "err"; text: string };
 
-const QUICK_COMMANDS = ["help", "email", "linkedin", "contact", "clear"] as const;
+const QUICK_COMMANDS = ["help", "email", "linkedin", "github", "contact", "clear"] as const;
 
 const WELCOME_LOG: LogEntry[] = [
   {
@@ -63,6 +64,8 @@ function executeCommand(
               "  mail              — open Gmail compose",
               "  linkedin          — show profile path",
               "  open linkedin     — open LinkedIn in new tab",
+              "  github            — show GitHub profile",
+              "  open github       — open GitHub in new tab",
               "  location          — city",
               "  timezone          — Asia/Kolkata (IST)",
               "  status            — availability",
@@ -107,6 +110,30 @@ function executeCommand(
         ],
       };
 
+    case "github":
+      if (!ctx.github) {
+        return {
+          entries: [
+            cmdEntry,
+            {
+              id: nextId(),
+              kind: "out",
+              lines: ["GitHub profile not configured. Set GITHUB_USERNAME in .env.local."],
+            },
+          ],
+        };
+      }
+      return {
+        entries: [
+          cmdEntry,
+          {
+            id: nextId(),
+            kind: "out",
+            lines: [ctx.github, 'Run "open github" to visit.'],
+          },
+        ],
+      };
+
     case "open": {
       const target = args[0];
       if (target === "linkedin") {
@@ -127,10 +154,31 @@ function executeCommand(
           sideEffect: () => openGmailCompose(ctx.email),
         };
       }
+      if (target === "github") {
+        if (!ctx.github) {
+          return {
+            entries: [
+              cmdEntry,
+              {
+                id: nextId(),
+                kind: "err",
+                text: "GitHub profile not configured. Set GITHUB_USERNAME in .env.local.",
+              },
+            ],
+          };
+        }
+        return {
+          entries: [
+            cmdEntry,
+            { id: nextId(), kind: "out", lines: ["Opening GitHub…"] },
+          ],
+          sideEffect: () => window.open(ctx.github, "_blank", "noopener,noreferrer"),
+        };
+      }
       return {
         entries: [
           cmdEntry,
-          { id: nextId(), kind: "err", text: 'Usage: open linkedin | open email' },
+          { id: nextId(), kind: "err", text: 'Usage: open linkedin | open github | open email' },
         ],
       };
     }
@@ -194,6 +242,7 @@ function executeCommand(
               "{",
               `  email: "${ctx.email}",`,
               `  linkedin: "${ctx.linkedin}",`,
+              `  github: "${ctx.github || "—"}",`,
               `  location: "${ctx.location}",`,
               '  timezone: "Asia/Kolkata",',
               '  status: "open_to_roles"',
@@ -244,6 +293,7 @@ function executeCommand(
 export default function ContactTerminal({
   email,
   linkedin,
+  github,
   location,
   build,
 }: ContactTerminalProps) {
@@ -271,7 +321,7 @@ export default function ContactTerminal({
 
   const run = useCallback(
     (raw: string) => {
-      const result = executeCommand(raw, { email, linkedin, location, build }, nextLogId);
+      const result = executeCommand(raw, { email, linkedin, github, location, build }, nextLogId);
       if (result.reset) {
         setLog([...WELCOME_LOG]);
         return;
@@ -280,7 +330,7 @@ export default function ContactTerminal({
       setLog((prev) => [...prev, ...result.entries]);
       result.sideEffect?.();
     },
-    [email, linkedin, location, build, nextLogId],
+    [email, linkedin, github, location, build, nextLogId],
   );
 
   const onSubmit = (event: FormEvent) => {

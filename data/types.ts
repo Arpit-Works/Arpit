@@ -20,6 +20,8 @@ export type LeetCodeTopic = {
 
 export type LeetCodeEntry = {
   stats: ReadonlyArray<readonly [string, string]>;
+  /** Accepted problems (LeetCode "All" difficulty count). Bars use this as 100%. */
+  totalProblemsSolved: number;
   topics: LeetCodeTopic[];
   languages: string[];
   profileUrl: string;

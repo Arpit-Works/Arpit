@@ -8,14 +8,16 @@ import Stack from "@/components/Stack";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import type { ExperienceEntry, LeetCodeEntry, ProjectEntry } from "@/data/types";
+import type { PortfolioData } from "@/lib/portfolio-data";
 
 type AppProps = {
   experience: ExperienceEntry[];
   projects: ProjectEntry[];
   leetcode: LeetCodeEntry;
+  contact: PortfolioData["contact"];
 };
 
-export default function App({ experience, projects, leetcode }: AppProps) {
+export default function App({ experience, projects, leetcode, contact }: AppProps) {
   return (
     <>
       <Navbar />
@@ -26,7 +28,7 @@ export default function App({ experience, projects, leetcode }: AppProps) {
       <LeetCode leetcode={leetcode} />
       <Stack />
       <Education />
-      <Contact />
+      <Contact contact={contact} />
     </>
   );
 }
