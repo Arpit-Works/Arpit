@@ -269,10 +269,6 @@ export default function ContactTerminal({
     scrollLog();
   }, [log, scrollLog]);
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
-
   const run = useCallback(
     (raw: string) => {
       const result = executeCommand(raw, { email, linkedin, location, build }, nextLogId);
