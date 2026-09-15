@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="arpit.dev">
+  <rect width="32" height="32" rx="7" fill="#0D1117"/>
+  <circle cx="16" cy="16" r="9" fill="none" stroke="rgba(79,209,174,0.22)" stroke-width="1.5"/>
+  <circle cx="16" cy="16" r="5" fill="#4FD1AE"/>
+</svg>

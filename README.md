@@ -1,58 +1,61 @@
-# Portfolio
+# Arpit Portfolio — Next.js + TypeScript
 
-Welcome to my portfolio! This website showcases my work and projects, built with Next.js, Tailwind CSS, and TypeScript.
+This version converts the supplied portfolio into a component-based Next.js App Router project.
 
-## 🚀 Getting Started
+## Architecture
 
-To get started with this project, you'll need to have Node.js and npm installed on your machine.
+- `app/App.tsx` — main composition/root component
+- `app/page.tsx` — Next.js route that renders `<App />`
+- `components/` — each portfolio section is a reusable component
+- `data/portfolio.ts` — all portfolio content/data
+- `app/globals.css` — original CSS/theme/design preserved
 
-### 📋 Prerequisites
+## Components
 
-- Node.js (v14 or later)
-- npm (v6 or later)
+```text
+App
+├── Navbar
+├── Hero
+├── About
+├── Experience
+├── Projects
+├── LeetCode
+├── Stack
+├── Education
+└── Contact
+```
 
-### 🔧 Installation
+## Make it dynamic later
 
-1. **Clone the repository:**
+Most content is already separated into `data/portfolio.ts`.
 
-   ```bash
-   git clone https://github.com/ArpitVK/Portfolio.git
-   ```
-   
-2. **Navigate to the project directory:**
+For example, to add another project:
 
-   ```bash
-   cd Portfolio
-   ```
+```ts
+projects: [
+  {
+    title: "New Project",
+    status: "live",
+    description: "Project description",
+    tags: ["Next.js", "TypeScript", "MongoDB"],
+  },
+]
+```
 
-3. **Install the dependencies:**
+The `Projects` component automatically renders it.
 
-   ```bash
-   npm install
-   ```
-4. **Start the development server:**
-   ``` bash
-   npm run dev
-   ```
+Later, `data/portfolio.ts` can be replaced with:
+- API/CMS data
+- database data
+- Sanity/Contentful/etc.
+- MDX/JSON
+- Next.js server-side data fetching
 
-   Your application should be running on http://localhost:3000.
+The component structure does not need to change.
 
-# 🌟 Features
-- Responsive Design: Built with Tailwind CSS to ensure a responsive and mobile-friendly layout.
-- TypeScript: Provides static type checking to enhance code quality and reduce errors.
-- Next.js: Utilizes Next.js for server-side rendering, static site generation, and optimized performance.
+## Run
 
-#  🔄 Deployment
-This project is deployed on Vercel. To deploy your own version, follow these steps:
-
-1. Push your code to a GitHub repository.
-2. Sign up for a Vercel account and link it to your GitHub repository.
-3. Vercel will automatically build and deploy your project on every push.
-
-   
-# ✨ Acknowledgments
-- Next.js: The React framework for production.
-- Tailwind CSS: A utility-first CSS framework.
-- TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
-
-   
+```bash
+npm install
+npm run dev
+```
