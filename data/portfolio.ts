@@ -99,7 +99,8 @@ export const portfolioStatic = {
       { num: "12", kind: "value", key: "containers:", value: "Docker" },
       { num: "13", kind: "value", key: "os:", value: "Linux" },
       { num: "14", kind: "value", key: "vcs:", value: "Git" },
-      { num: "15", kind: "array", key: "observability:", values: ["Kibana", "Opsgenie", "Jira"] },
+      { num: "15", kind: "array", key: "ci-cd:", values: ["Github Actions"] },
+      { num: "16", kind: "array", key: "observability:", values: ["Kibana", "Opsgenie", "Jira"] },
     ],
   },
 
