@@ -8,10 +8,15 @@ function openGmailCompose(email: string) {
   window.open(gmailComposeUrl(email), "_blank", "noopener,noreferrer");
 }
 
+function openResume(url: string) {
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
 export type ContactTerminalProps = {
   email: string;
   linkedin: string;
   github: string;
+  resume: string;
   location: string;
   build: string;
 };
@@ -22,7 +27,7 @@ type LogEntry =
   | { id: string; kind: "out"; lines: string[] }
   | { id: string; kind: "err"; text: string };
 
-const QUICK_COMMANDS = ["help", "email", "linkedin", "github", "contact", "clear"] as const;
+const QUICK_COMMANDS = ["help", "email", "resume", "linkedin", "github", "contact", "clear"] as const;
 
 const WELCOME_LOG: LogEntry[] = [
   {
@@ -33,7 +38,7 @@ const WELCOME_LOG: LogEntry[] = [
   {
     id: "welcome-1",
     kind: "sys",
-    text: 'Type "help" or click a command below. Try: email, linkedin, status, mail',
+    text: 'Type "help" or click a command below. Try: resume, email, linkedin, mail',
   },
 ];
 
@@ -66,6 +71,8 @@ function executeCommand(
               "  open linkedin     — open LinkedIn in new tab",
               "  github            — show GitHub profile",
               "  open github       — open GitHub in new tab",
+              "  resume            — show resume link",
+              "  open resume       — open resume PDF in new tab",
               "  location          — city",
               "  timezone          — Asia/Kolkata (IST)",
               "  status            — availability",
@@ -106,6 +113,19 @@ function executeCommand(
             id: nextId(),
             kind: "out",
             lines: [ctx.linkedin, 'Run "open linkedin" to visit.'],
+          },
+        ],
+      };
+
+    case "resume":
+    case "cv":
+      return {
+        entries: [
+          cmdEntry,
+          {
+            id: nextId(),
+            kind: "out",
+            lines: [ctx.resume, 'Run "open resume" to view in a new tab.'],
           },
         ],
       };
@@ -175,10 +195,23 @@ function executeCommand(
           sideEffect: () => window.open(ctx.github, "_blank", "noopener,noreferrer"),
         };
       }
+      if (target === "resume" || target === "cv") {
+        return {
+          entries: [
+            cmdEntry,
+            { id: nextId(), kind: "out", lines: ["Opening resume…"] },
+          ],
+          sideEffect: () => openResume(ctx.resume),
+        };
+      }
       return {
         entries: [
           cmdEntry,
-          { id: nextId(), kind: "err", text: 'Usage: open linkedin | open github | open email' },
+          {
+            id: nextId(),
+            kind: "err",
+            text: 'Usage: open linkedin | open github | open resume | open email',
+          },
         ],
       };
     }
@@ -243,6 +276,7 @@ function executeCommand(
               `  email: "${ctx.email}",`,
               `  linkedin: "${ctx.linkedin}",`,
               `  github: "${ctx.github || "—"}",`,
+              `  resume: "${ctx.resume}",`,
               `  location: "${ctx.location}",`,
               '  timezone: "Asia/Kolkata",',
               '  status: "open_to_roles"',
@@ -294,6 +328,7 @@ export default function ContactTerminal({
   email,
   linkedin,
   github,
+  resume,
   location,
   build,
 }: ContactTerminalProps) {
@@ -321,7 +356,11 @@ export default function ContactTerminal({
 
   const run = useCallback(
     (raw: string) => {
-      const result = executeCommand(raw, { email, linkedin, github, location, build }, nextLogId);
+      const result = executeCommand(
+        raw,
+        { email, linkedin, github, resume, location, build },
+        nextLogId,
+      );
       if (result.reset) {
         setLog([...WELCOME_LOG]);
         return;
@@ -330,7 +369,7 @@ export default function ContactTerminal({
       setLog((prev) => [...prev, ...result.entries]);
       result.sideEffect?.();
     },
-    [email, linkedin, github, location, build, nextLogId],
+    [email, linkedin, github, resume, location, build, nextLogId],
   );
 
   const onSubmit = (event: FormEvent) => {

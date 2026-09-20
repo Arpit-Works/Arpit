@@ -54,6 +54,7 @@ export default function Contact({ contact }: ContactProps) {
               email={contact.email}
               linkedin={contact.linkedin}
               github={contact.github}
+              resume={contact.resume}
               location={contact.location}
               build={contact.build}
             />
