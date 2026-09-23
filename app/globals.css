@@ -780,7 +780,7 @@
     }
   }
 
-  /* Mobile: carousel + highlight + filters */
+  /* Mobile: horizontal carousel + bullet list (same detail as desktop) */
   @media (max-width: 767px){
     .exp-layout{
       display: block;
@@ -802,13 +802,6 @@
     .exp-card{
       flex: 0 0 min(86%, 300px);
       scroll-snap-align: start;
-    }
-    .exp-highlight,
-    .exp-filters{
-      display: block;
-    }
-    .exp-filters{
-      display: flex;
     }
     .exp-detail{
       height: min(72vh, 30rem);

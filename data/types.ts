@@ -6,7 +6,7 @@ export type ExperienceEntry = {
   tools: string[];
   /** ISO-ish date for sorting (e.g. 2025-02-01). Newest first when set. */
   startDate?: string;
-  /** Mobile highlight card — e.g. 100,000 → 40,000 */
+  /** Optional highlight (unused in UI; same info lives in bullets) */
   highlightHeadline?: string;
   highlightCaption?: string;
 };
