@@ -127,7 +127,18 @@ function TimelineNav({
     if (!sidebar) return;
 
     const active = sidebar.querySelector<HTMLElement>(".exp-timeline-item.is-active");
-    active?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    if (!active) return;
+
+    const itemTop = active.offsetTop;
+    const itemBottom = itemTop + active.offsetHeight;
+    const viewTop = sidebar.scrollTop;
+    const viewBottom = viewTop + sidebar.clientHeight;
+
+    if (itemTop < viewTop) {
+      sidebar.scrollTop = itemTop;
+    } else if (itemBottom > viewBottom) {
+      sidebar.scrollTop = itemBottom - sidebar.clientHeight;
+    }
   }, [activeIndex]);
 
   return (

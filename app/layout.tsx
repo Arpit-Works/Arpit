@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import ScrollRestoration from "@/components/ScrollRestoration";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <ScrollRestoration />
+        {children}
+      </body>
     </html>
   );
 }
