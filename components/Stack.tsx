@@ -72,10 +72,11 @@ export default function Stack() {
                           {line.kind === "value" && (
                             <>
                               <span className="stack-value">{line.value}</span>
-                              {"comment" in line && line.comment && (
-                                <span className="stack-comment">{line.comment}</span>
-                              )}
-                              {"extra" in line && line.extra && (
+                              {"comment" in line &&
+                                typeof line.comment === "string" && (
+                                  <span className="stack-comment">{line.comment}</span>
+                                )}
+                              {"extra" in line && typeof line.extra === "string" && (
                                 <>
                                   <span className="stack-punc">, </span>
                                   <span className="stack-value">{line.extra}</span>
