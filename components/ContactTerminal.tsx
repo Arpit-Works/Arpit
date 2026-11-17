@@ -241,7 +241,7 @@ function executeCommand(
             kind: "out",
             lines: [
               "status: open_to_roles",
-              "focus: backend · full-stack · reliability",
+              "focus: frontend · backend · full-stack · reliability",
               "reply: usually within 24h",
             ],
           },
@@ -256,7 +256,7 @@ function executeCommand(
             id: nextId(),
             kind: "out",
             lines: [
-              "arpit — backend-focused engineer",
+              "arpit — Full-Stack engineer",
               "debugging, observability, shipping stable systems",
             ],
           },
